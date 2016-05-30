@@ -11,20 +11,18 @@ import {
   Text,
   View
 } from 'react-native';
+import DatePicker from './date-picker'
 
 class datePickerExample extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
+          <DatePicker
+              initialDate={(new Date('1992-12-16T00:00:00')).getTime()}
+              minDate={(new Date('1900-01-01T00:00:00')).getTime()}
+              maxDate={(new Date()).getTime()}
+              onDateChange={date => console.warn('DATE', date)}
+          />
       </View>
     );
   }
@@ -49,4 +47,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('datePickerExample', datePickerExample);
+AppRegistry.registerComponent('datePickerExample', () => datePickerExample);
