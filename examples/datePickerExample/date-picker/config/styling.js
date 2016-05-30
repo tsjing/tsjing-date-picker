@@ -4,7 +4,7 @@ function generateStyleSheet () {
     const { height } = Dimensions.get('window');
 
     const WHITE = '#ffffff';
-    const OVERLAY_BACKGROUND = 'rgba(255,255,255,0.8)';
+    const OVERLAY_BACKGROUND = 'rgba(255,255,255,0.95)';
     const FONT_COLOR = '#666666';
 
     const PIXEL_RATIO = height / 480;

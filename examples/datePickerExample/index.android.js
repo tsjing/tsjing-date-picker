@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('datePickerExample', () => datePickerExample);
+AppRegistry.registerComponent('datePickerExample', datePickerExample);
