@@ -1,6 +1,5 @@
 export default {
     MODE_DATE: 'date',
     MODE_TIME: 'time',
-    MODE_DATETIME: 'datetime',
-    COUNTDOWN: 'countdown'
+    MODE_DATETIME: 'datetime'
 };

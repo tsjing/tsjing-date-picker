@@ -1,5 +1,5 @@
 export default {
-    MODE_DATE: 'MODE_DATE',
-    MODE_TIME: 'MODE_TIME',
-    MODE_DATETIME: 'MODE_DATETIME'
+    MODE_DATE: 'date',
+    MODE_TIME: 'time',
+    MODE_DATETIME: 'datetime'
 };

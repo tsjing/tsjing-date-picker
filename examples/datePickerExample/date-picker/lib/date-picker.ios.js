@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { TextInput, Modal, DatePickerIOS, View, Text, TouchableOpacity } from 'react-native';
 import MODES from '../config/modes';
+import generateStyleSheet from '../config/styling';
 
 class DatePicker extends Component
 {
@@ -17,6 +18,7 @@ class DatePicker extends Component
     }
 
     componentWillMount () {
+        this.styles = generateStyleSheet();
         this.state = {
             showPicker: false,
             initialDate: this.props.initialDate ? new Date(this.props.initialDate) : null,
@@ -62,7 +64,7 @@ class DatePicker extends Component
                 >
                     <TextInput
                         key="date-picker-text-input"
-                        style={this.props.textFieldStyle || { width: 200, height: 50, backgroundColor: '#ffffff' }}
+                        style={[this.styles.textField, this.props.textFieldStyle]}
                         value={this.state.value ? this.state.value.toDateString() : this.props.placeholder}
                         editable={false}
                     />
@@ -75,10 +77,10 @@ class DatePicker extends Component
                     visible={this.state.showPicker}
                 >
                     <View
-                        style={{ backgroundColor: 'rgba(255,255,255,0.8)', flex: 1 }}
+                        style={this.styles.overlay}
                     >
                         <View
-                            style={{ flex: 1, justifyContent: 'space-around' }}
+                            style={this.styles.grid}
                         >
                             <DatePickerIOS
                                 date={this.state.value || this.state.initialDate || new Date()}
@@ -92,10 +94,10 @@ class DatePicker extends Component
                             onPress={this._hidePicker.bind(this)}
                         >
                             <View
-                                style={{ flexDirection: 'row', height: 50, backgroundColor: '#ffffff', alignItems: 'center', justifyContent: 'center' }}
+                                style={this.styles.bottomButton}
                             >
                                 <Text
-                                    style={{ color: '#666' }}
+                                    style={this.styles.bottomButtonText}
                                 >
                                     OK
                                 </Text>
