@@ -1,0 +1,25 @@
+{
+  "name": "tsjing-date-picker",
+  "version": "1.0.0",
+  "description": "Date-picker React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsjing/tsjing-date-picker.git"
+  },
+  "keywords": [
+    "date-picker",
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "author": "dejakob",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tsjing/tsjing-date-picker/issues"
+  },
+  "homepage": "https://github.com/tsjing/tsjing-date-picker#readme"
+}
