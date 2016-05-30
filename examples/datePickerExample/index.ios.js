@@ -17,7 +17,12 @@ class datePickerExample extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <DatePicker />
+        <DatePicker
+          initialDate={(new Date('1992-12-16T00:00:00')).getTime()}
+          minDate={(new Date('1900-01-01T00:00:00')).getTime()}
+          maxDate={(new Date()).getTime()}
+          onDateChange={date => console.warn('DATE', date)}
+        />
       </View>
     );
   }

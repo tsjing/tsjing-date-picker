@@ -11,21 +11,23 @@ class DatePicker extends Component
             maxDate: React.PropTypes.number,
             mode: React.PropTypes.string,
             onDateChange: React.PropTypes.func,
-            textFieldStyle: React.PropTypes.object
+            textFieldStyle: React.PropTypes.object,
+            initialDate: React.PropTypes.number
         };
     }
 
     componentWillMount () {
         this.state = {
             showPicker: false,
-            value: new Date(this.props.value)
+            initialDate: this.props.initialDate ? new Date(this.props.initialDate) : null,
+            value: typeof this.props.value === 'number' ? new Date(this.props.value) : null
         };
     }
 
     componentWillReceiveProps (newProps) {
         if (newProps.value !== this.props.value) {
             this.setState({
-                value: new Date(newProps.value)
+                value: typeof this.props.value === 'number' ? new Date(this.props.value) : null
             });
         }
     }
@@ -45,7 +47,11 @@ class DatePicker extends Component
     _handleDateChange (dateTime) {
         this.setState({
             value: dateTime
-        })
+        });
+
+        if (typeof this.props.onDateChange === 'function') {
+            this.props.onDateChange(dateTime.getTime())
+        }
     }
 
     render () {
@@ -57,7 +63,7 @@ class DatePicker extends Component
                     <TextInput
                         key="date-picker-text-input"
                         style={this.props.textFieldStyle || { width: 200, height: 50, backgroundColor: '#ffffff' }}
-                        value={this.state.value.toDateString()}
+                        value={this.state.value ? this.state.value.toDateString() : this.props.placeholder}
                         editable={false}
                     />
                 </TouchableOpacity>
@@ -75,10 +81,10 @@ class DatePicker extends Component
                             style={{ flex: 1, justifyContent: 'space-around' }}
                         >
                             <DatePickerIOS
-                                date={this.state.value}
+                                date={this.state.value || this.state.initialDate || new Date()}
                                 mode={this.props.mode || MODES.MODE_DATE}
-                                minimumDate={this.props.minDate}
-                                maximumDate={this.props.maxDate}
+                                minimumDate={this.props.minDate ? new Date(this.props.minDate) : null}
+                                maximumDate={this.props.maxDate ? new Date(this.props.maxDate) : null}
                                 onDateChange={this._handleDateChange.bind(this)}
                             />
                         </View>
