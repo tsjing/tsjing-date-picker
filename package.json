@@ -1,6 +1,6 @@
 {
   "name": "tsjing-date-picker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Date-picker React Native",
   "main": "index.js",
   "scripts": {
