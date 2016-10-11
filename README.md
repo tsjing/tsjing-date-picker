@@ -18,6 +18,7 @@ Note: all timestamps are ms-based
 |onDateChange|Function|Fires when the selected date changed, param: datetime as timestamp|
 |textFieldStyle|Object|Additional styling for the input box|
 |initialDate|Number (timestamp)|Initial date|
+|spinnerMode|Boolean|Android only: shows the calendar as a spinner|
 
 ## Todo
 * More testing
